@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "baseUrl": ".",
+        "paths": {
+            "@controllers/*": ["./src/controllers/*"],
+            "@services/*": ["./src/services/*"],
+            "@middlewares/*": ["./src/middlewares/*"],
+            "@repositories/*": ["./src/repositories/*"],
+            "@models/*": ["./src/models/*"]
+        },
+        "module": "CommonJS",
+        "target": "ES2022",
+        "lib": ["ES7"],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "typeRoots": ["./node_modules/@types", "./src/@types"],
+        "strictNullChecks": true,
+        "strict": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
