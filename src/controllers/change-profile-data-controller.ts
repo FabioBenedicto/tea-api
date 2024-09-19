@@ -16,7 +16,7 @@ export class ChangeProfileDataController {
       throw new Error('Usuário não autenticado');
     }
 
-    const { user } = await validateTokenService.execute({ token });
+    const user = await validateTokenService.execute({ token });
 
     const { emergency_phone_number, notes } = req.body;
 
@@ -37,6 +37,8 @@ export class ChangeProfileDataController {
       profile_picture_url,
     });
 
-    return res.status(200).send(updatedUser);
+    return res.status(200).send({
+      user: updatedUser,
+    });
   }
 }

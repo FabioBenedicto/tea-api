@@ -29,7 +29,13 @@ export class ValidateTokenService {
     }
 
     return {
-      user,
+      id: userFromDatabase.id,
+      first_name: userFromDatabase.first_name,
+      last_name: userFromDatabase.last_name,
+      email: userFromDatabase.email,
+      profile_picture_url: userFromDatabase.profile_picture_url,
+      notes: userFromDatabase.notes,
+      emergency_phone_number: userFromDatabase.emergency_phone_number,
     };
   }
 }
