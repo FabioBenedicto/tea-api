@@ -38,7 +38,7 @@ export class ChangeProfileDataController {
     });
 
     return res.status(200).send({
-      user: updatedUser,
+      user,
     });
   }
 }

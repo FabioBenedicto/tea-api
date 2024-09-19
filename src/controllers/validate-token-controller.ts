@@ -11,7 +11,7 @@ export class ValidateTokenController {
     const prismaUserRepository = new PrismaUserRepository();
     const validateTokenService = new ValidateTokenService(prismaUserRepository);
 
-    const { user } = await validateTokenService.execute({
+    const user = await validateTokenService.execute({
       token,
     });
 

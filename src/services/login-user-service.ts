@@ -35,8 +35,16 @@ export class LoginUserService {
     });
 
     return {
-      user,
-      token,
+      user: {
+        id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+        profile_picture_url: user.profile_picture_url,
+        notes: user.notes,
+        emergency_phone_number: user.emergency_phone_number,
+      },
+      token: token,
     };
   }
 }

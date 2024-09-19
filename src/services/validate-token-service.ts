@@ -18,11 +18,15 @@ export class ValidateTokenService {
 
     const user = verify(token, process.env.TOKEN_SECRET_KEY || '') as User;
 
+    console.log(user);
+
     const { id } = user;
 
     const userFromDatabase = await this.userRepository.findUniqueById({
       id,
     });
+
+    console.log(userFromDatabase)
 
     if (!userFromDatabase) {
       throw new Error('Usuário não autenticado');
