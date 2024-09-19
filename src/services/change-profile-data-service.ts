@@ -10,12 +10,9 @@ interface changeAboutMeServiceData {
 export class ChangeProfileDataService {
   constructor(private userRepository: PrismaUserRepository) {}
 
-  async execute({
-    id,
-    emergency_phone_number,
-    notes,
-    profile_picture_url,
-  }: changeAboutMeServiceData) {
+  async execute(req: changeAboutMeServiceData) {
+    const {id, emergency_phone_number, notes, profile_picture_url} = req;
+
     const user =  await this.userRepository.update({
       id,
       emergency_phone_number,

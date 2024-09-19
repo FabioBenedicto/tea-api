@@ -9,8 +9,8 @@ interface ValidateTokenServiceData {
 export class ValidateTokenService {
   constructor(private userRepository: PrismaUserRepository) {}
 
-  async execute(request: ValidateTokenServiceData) {
-    const { token } = request;
+  async execute(req: ValidateTokenServiceData) {
+    const { token } = req;
 
     if (!token) {
       throw new Error('Usuário não autenticado');
@@ -18,15 +18,11 @@ export class ValidateTokenService {
 
     const user = verify(token, process.env.TOKEN_SECRET_KEY || '') as User;
 
-    console.log(user);
-
     const { id } = user;
 
     const userFromDatabase = await this.userRepository.findUniqueById({
       id,
     });
-
-    console.log(userFromDatabase)
 
     if (!userFromDatabase) {
       throw new Error('Usuário não autenticado');

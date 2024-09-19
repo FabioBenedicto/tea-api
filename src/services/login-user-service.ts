@@ -10,8 +10,8 @@ interface LoginUserServiceData {
 export class LoginUserService {
   constructor(private userRepository: PrismaUserRepository) {}
 
-  async execute(request: LoginUserServiceData) {
-    const { email, password } = request;
+  async execute(req: LoginUserServiceData) {
+    const { email, password } = req;
 
     if (!email || !password) {
       throw new Error('Falta informações');

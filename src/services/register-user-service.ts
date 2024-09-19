@@ -12,8 +12,8 @@ interface RegisterUserServiceData {
 export class RegisterUserService {
   constructor(private userRepository: PrismaUserRepository) {}
 
-  async execute(request: RegisterUserServiceData) {
-    const { email, firstName, lastName, password } = request;
+  async execute(req: RegisterUserServiceData) {
+    const { email, firstName, lastName, password } = req;
 
     const prisma = new PrismaClient();
 
