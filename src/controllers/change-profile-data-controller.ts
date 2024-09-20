@@ -37,6 +37,8 @@ export class ChangeProfileDataController {
       profile_picture_url,
     });
 
+    console.log(updatedUser);
+
     return res.status(200).send({
       user: updatedUser,
     });
