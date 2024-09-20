@@ -21,7 +21,7 @@ export class ChangeProfileDataController {
     const { emergency_phone_number, notes } = req.body;
 
     const profile_picture_url = req.file
-      ? `http://${req.headers.host}/profile-picture/${req.file.filename}`
+      ? `https://${req.headers.host}/profile-picture/${req.file.filename}`
       : undefined;
 
     const changeProfileDataService = new ChangeProfileDataService(
@@ -36,8 +36,6 @@ export class ChangeProfileDataController {
       notes,
       profile_picture_url,
     });
-
-    console.log(updatedUser);
 
     return res.status(200).send({
       user: updatedUser,
