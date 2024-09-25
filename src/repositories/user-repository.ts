@@ -26,6 +26,7 @@ export interface UserUpdateData {
 export interface UserRepositories {
   create: (data: UserCreateData) => Promise<void>;
   update: (data: UserUpdateData) => Promise<User>;
+  findAll: () => Promise<User[]>;
   findUniqueById: (data: UserFindUniqueByIdData) => Promise<User | null>;
   findUniqueByEmail: (data: UserFindUniqueByEmailData) => Promise<User | null>;
 }
